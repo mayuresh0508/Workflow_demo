@@ -17,7 +17,7 @@ jobs:
         run: echo "This is a demo of a workflow."
 
       - name: Can we deploy today?
-        uses: armanbilge/should-i-deploy-today@v1
+        uses: actions/shouldideploy-action@v1
 
       - name: Deploy
         run: echo "Deploying to production..."
