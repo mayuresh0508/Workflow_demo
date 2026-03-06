@@ -21,7 +21,8 @@ jobs:
       - name: I will do it myself
         run: | 
             RESPONSE=$(curl -s https://shouldideploy.today/api?tz=Asia%2FKolkata&lang=en)
-            echo "Response: $RESPONSE.message"
+            MESSAGE=$(echo $RESPONSE | jq -r '.message')
+            echo "Response from API: $MESSAGE"
 
             
       - name: Deploy
