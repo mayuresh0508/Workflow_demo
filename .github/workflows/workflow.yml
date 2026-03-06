@@ -12,12 +12,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print message
-        run: echo "This is a demo of a workflow."
+        run: echo "Workflow started"
 
-      - name: Can we deploy today?
-        uses: timelfrink/shouldideploy-action@v1
-        with:
-          timezone: 'IST'
+    #   - name: Can we deploy today?
+    #     uses: timelfrink/shouldideploy-action@v1
+    #     with:
+    #       timezone: 'IST'
+        
+      - name: I will do it myself
+        run: | 
+            RESPONSE=$(curl -s https://shouldideploy.today/api?tz=Asia%2FKolkata&lang=en)
+            echo "Response: $RESPONSE.message"
 
+            
       - name: Deploy
         run: echo "Deploying to production..."
